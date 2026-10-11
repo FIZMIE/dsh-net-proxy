@@ -18,6 +18,7 @@ tools/verify-selection.mjs
 tools/verify-failover.mjs
 tools/verify-independence.mjs
 tools/verify-stale-core.mjs
+tools/verify-core-download.mjs
 tools/bootstrap-test.mjs
 tools/test-harness.mjs
 tools/probe-routing.mjs

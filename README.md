@@ -172,6 +172,15 @@ and a subscription whose DNS config references it fails with
 `list gfw not found in geosite.dat`. The core also looks for these files in its *working
 directory*, not beside the executable, so they are copied there on every start.
 
+**The subscription download has a second path through the bundled core.** The host's own
+`fetch` is subject to whatever proxy environment the process carries, and on a censored
+network it may simply have no route out — which is the worst place to fail, because that
+download is the plugin's only way in. So when `fetch` fails, the plugin starts its bundled
+core on a throwaway config containing nothing but `MATCH,DIRECT` (no subscription, no nodes,
+no geodata needed to boot), uses it as an HTTP proxy for the download, then tears it down. A
+separate process with an ordinary network stack is a genuine second chance, and the provider
+is usually the one host that *is* reachable directly.
+
 **Start and stop are serialised, and stopping waits.** `child.kill()` only delivers a signal;
 starting the replacement while the old process still holds its ports and working directory is
 a race that presents as a second start silently hanging. Every start/stop runs through one
