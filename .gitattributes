@@ -1,0 +1,9 @@
+# Keep line endings stable across platforms: the bundled binaries must be
+# untouched, and the text files are authored with LF.
+* text=auto eol=lf
+
+*.exe   binary
+*.dat   binary
+*.metadb binary
+*.zip   binary
+*.png   binary

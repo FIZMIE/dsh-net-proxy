@@ -1,0 +1,4 @@
+# dsh-net-proxy bundle patch: inserts the plugin into a profile's layer stack.
+- insert:
+    - id: dsh-net-proxy
+      name: 'dsh-net-proxy'

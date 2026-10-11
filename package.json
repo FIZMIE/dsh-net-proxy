@@ -1,0 +1,72 @@
+{
+  "name": "dsh-net-proxy",
+  "version": "0.1.0",
+  "description": "Self-contained outbound proxy for the DeepSeek Harness desktop app: a bundled mihomo core, a subscription link you paste once, the plugin's own latency ranking, and automatic failover. No third-party proxy client, no system proxy.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FIZMIE/dsh-net-proxy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FIZMIE/dsh-net-proxy/issues"
+  },
+  "homepage": "https://github.com/FIZMIE/dsh-net-proxy#readme",
+  "author": "FIZMIE",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./client/client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "lib",
+    "client",
+    "bin",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE",
+    "THIRD-PARTY-NOTICES.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-primitives"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=22.6"
+  },
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "cordis",
+    "proxy",
+    "mihomo",
+    "clash",
+    "subscription",
+    "failover",
+    "windows",
+    "electron"
+  ],
+  "scripts": {
+    "verify": "node tools/verify-setup.mjs"
+  }
+}

@@ -1,0 +1,25 @@
+# The bundled core and geodata are produced by `tools/fetch-kernel.mjs` and
+# `tools/fetch-geodata.mjs`. They ARE committed on purpose: shipping them is the
+# whole point of the plugin, so a fresh install needs no download at all.
+# Uncomment the two lines below only if you would rather keep the repository
+# small and run the fetchers yourself.
+#
+# bin/mihomo-windows-amd64-compatible.exe
+# bin/geoip.metadb
+# bin/geosite.dat
+
+# Debugging and local-acceptance scripts. They hard-code paths on the machine
+# they were written for, so they are development scaffolding rather than part of
+# the plugin. `tools/fetch-kernel.mjs`, `tools/fetch-geodata.mjs` and
+# `tools/verify-setup.mjs` are portable and are committed.
+tools/acceptance.mjs
+tools/verify-workflow.mjs
+tools/verify-selection.mjs
+tools/verify-failover.mjs
+tools/verify-independence.mjs
+tools/bootstrap-test.mjs
+tools/test-harness.mjs
+tools/probe-routing.mjs
+
+node_modules/
+*.log
